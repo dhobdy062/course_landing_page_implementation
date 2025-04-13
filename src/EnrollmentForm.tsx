@@ -9,16 +9,20 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
     phone: "",
     dateOfBirth: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const createEnrollment = useMutation(api.enrollments.create);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await createEnrollment(formData);
-      onComplete();
+      onComplete(); // This calls the parent's handleEnrollmentComplete
     } catch (error) {
       console.error("Error creating enrollment:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -35,7 +39,7 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="email">Email Address</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
@@ -64,8 +68,12 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
           onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
         />
       </div>
-      <button type="submit" className="button button-primary">
-        Continue to Payment
+      <button 
+        type="submit" 
+        className="button button-primary"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Processing..." : "Continue to Payment"}
       </button>
     </form>
   );

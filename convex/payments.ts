@@ -9,22 +9,24 @@ export const updatePaymentStatus = internalMutation({
     paymentDate: v.number(),
   },
   handler: async (ctx, args) => {
-    // Find enrollment by PayPal payment ID
+    // Find the enrollment by PayPal payment ID
     const enrollment = await ctx.db
       .query("enrollments")
-      .withIndex("by_paypal_id", (q) => q.eq("paypalPaymentId", args.paypalPaymentId))
-      .unique();
+      .withIndex("by_paypal_id")
+      .filter((q) => q.eq(q.field("paypalPaymentId"), args.paypalPaymentId))
+      .first();
 
     if (!enrollment) {
-      throw new Error("Enrollment not found");
+      throw new Error(`No enrollment found for PayPal payment ID: ${args.paypalPaymentId}`);
     }
 
-    // Update enrollment with payment information
+    // Update the enrollment with payment information
     await ctx.db.patch(enrollment._id, {
-      status: "active",
       paymentStatus: args.status,
       amount: args.amount,
       paymentDate: args.paymentDate,
     });
+
+    return enrollment._id;
   },
 });

@@ -13,10 +13,7 @@ export function CourseLanding() {
   const handleEnrollmentComplete = () => {
     setEnrollmentComplete(true);
     setShowEnrollmentForm(false);
-    // Scroll to pricing section after a short delay to ensure state has updated
-    setTimeout(() => {
-      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -64,13 +61,6 @@ export function CourseLanding() {
       <section className="course-breakdown">
         <h2>Course Breakdown</h2>
         <div className="session">
-          <div className="session-image">
-            <img
-              src="aisession1.png"
-              alt="Session 1"
-              className="session-img"
-            />
-          </div>
           <div className="session-content">
             <h3>Session 1: Speak AI—Mastering the Art of Prompt Engineering</h3>
             <p>
@@ -87,13 +77,6 @@ export function CourseLanding() {
         </div>
 
         <div className="session">
-          <div className="session-image">
-            <img
-              src="aisession2.png"
-              alt="Session 2"
-              className="session-img"
-            />
-          </div>
           <div className="session-content">
             <h3>Session 2: AI Time Savers—Automations That Multiply Your Productivity</h3>
             <p>
@@ -110,13 +93,6 @@ export function CourseLanding() {
         </div>
 
         <div className="session">
-          <div className="session-image">
-            <img
-              src="class-session3.png"
-              alt="Session 3"
-              className="session-img"
-            />
-          </div>
           <div className="session-content">
             <h3>Session 3: The Agentic Era—Harnessing the Power of AI Agents</h3>
             <p>
@@ -143,7 +119,7 @@ export function CourseLanding() {
       {/* Payment Section */}
       <section className="payment" id="pricing">
         <h2>Choose Your Payment Option</h2>
-        {enrollmentComplete ? (
+        {enrollmentComplete && (
           <>
             <div className="pricing-cards">
               <div className="pricing-card">
@@ -201,7 +177,7 @@ export function CourseLanding() {
               Meeting password and access details will be sent after payment confirmation
             </div>
           </>
-        ) : null}
+        )}
       </section>
 
       {/* FAQ Section */}

@@ -15,6 +15,7 @@ http.route({
 
     // Get the raw body
     const rawBody = await request.text();
+    console.log("Received PayPal IPN:", rawBody);
     
     // Verify with PayPal
     const verifyResponse = await fetch(paypalIpnUrl, {
@@ -26,8 +27,10 @@ http.route({
     });
 
     const verificationResult = await verifyResponse.text();
+    console.log("PayPal verification result:", verificationResult);
     
     if (verificationResult !== "VERIFIED") {
+      console.error("PayPal verification failed:", verificationResult);
       return new Response("Invalid PayPal verification", { status: 400 });
     }
 
@@ -39,20 +42,35 @@ http.route({
     const paymentAmount = formData.get("mc_gross");
     const paymentType = formData.get("txn_type");
 
+    console.log("Payment details:", {
+      status: paymentStatus,
+      id: paymentId,
+      custom: customData,
+      amount: paymentAmount,
+      type: paymentType
+    });
+
     // Handle different payment statuses
     if (paymentStatus === "Completed") {
-      // Update enrollment status
-      await ctx.runMutation(internal.payments.updatePaymentStatus, {
-        paypalPaymentId: paymentId!,
-        status: "paid",
-        amount: parseFloat(paymentAmount!),
-        paymentDate: Date.now(),
-      });
+      try {
+        // Update enrollment status
+        await ctx.runMutation(internal.payments.updatePaymentStatus, {
+          paypalPaymentId: paymentId!,
+          status: "paid",
+          amount: parseFloat(paymentAmount!),
+          paymentDate: Date.now(),
+        });
 
-      // Send confirmation email with meeting password
-      await ctx.runAction(internal.emails.sendPaymentConfirmation, {
-        paypalPaymentId: paymentId!,
-      });
+        // Send confirmation email with meeting password
+        await ctx.runAction(internal.emails.sendPaymentConfirmation, {
+          paypalPaymentId: paymentId!,
+        });
+
+        console.log("Payment processing completed successfully");
+      } catch (error) {
+        console.error("Error processing payment:", error);
+        return new Response("Internal server error", { status: 500 });
+      }
     }
 
     return new Response("OK", { status: 200 });
