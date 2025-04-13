@@ -287,6 +287,21 @@ p {
 
 .pricing-features li {
   margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.pricing-features li:before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+}
+
+.pricing-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
 }
 
 .confirmation-message {
