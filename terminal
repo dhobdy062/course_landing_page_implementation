@@ -1,0 +1,3 @@
+git remote -v
+# This should show the remote repository URLs
+
