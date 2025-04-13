@@ -79,7 +79,7 @@ export function CourseLanding() {
               }}
             />
 
-<img src="public/aisession1.png" alt="Session 1" style={{ width: '250px', height: '100%', objectFit: 'cover', borderRadius: '10px', position: 'absolute', right: 0 }} />
+<img src="aisession1.png" alt="Session 1" style={{ width: '250px', height: '100%', objectFit: 'cover', borderRadius: '10px', position: 'absolute', right: 0 }} />
 
             
           <div className="session-content" style={{ flexGrow: "1" }}>
@@ -106,7 +106,7 @@ export function CourseLanding() {
                 width: "100%",
               }}>
               <img
-                  src="public/aisession2.png"
+                  src="aisession2.png"
                   alt="Session 2"
                   style={{
                     width: "250px",
@@ -144,7 +144,7 @@ export function CourseLanding() {
           <div className="session-content">
             <h3>Session 3: The Agentic Era—Harnessing the Power of AI Agents</h3>
              <img
-              src="public/class-session3.png"
+              src="class-session3.png"
               alt="Session 3"
               style={{
                 width: "250px",
