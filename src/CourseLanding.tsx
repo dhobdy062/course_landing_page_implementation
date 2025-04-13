@@ -21,7 +21,7 @@ export function CourseLanding() {
       {/* Hero Section */}
       <header className="hero">
         <div className="hero-content">
-          <img src="https://i.imgur.com/JaE4oM9.jpeg" alt="Building Happy People with AI" className="logo" />
+          <img src="Build_Happy_logo_wo_plaque.png" alt="Building Happy People with AI" className="logo" />
           <h1>Understanding AI: Empower Your Business &amp; Life</h1>
           <p className="hero-subtitle">
             3 Live Sessions to Master AI Prompting, Automation, and the Agentic Era—No Coding Required.
@@ -99,39 +99,36 @@ export function CourseLanding() {
         </div>
 
         <div className="session">
-        <div className="session-image-container" style={{
-              display: "flex",
-              flexDirection: "row",
-              height: "100%",
-              width: "100%",
-            }}>
-            <img
-                src="aisession2.png"
-                alt="Session 2"
-                style={{
-                  width: "250px",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: "10px",
-                }}
-              />
+          <div className="session-image-container" style={{
+                display: "flex",
+                flexDirection: "row",
+                height: "100%",
+                width: "100%",
+              }}>
+              <img
+                  src="aisession2.png"
+                  alt="Session 2"
+                  style={{
+                    width: "250px",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
+                />
 
-          <div className="session-content" style={{flexGrow:"1"}}>
-
-            
-              <h3>Session 2: AI Time Savers—Automations That Multiply Your Productivity</h3>
-            <p>
-              Discover how to harness AI tools to automate content sharing, build webpages and dashboards, 
-              and integrate AI into your workflow—all with no coding required.
-            </p>
-            <ul className="session-benefits">
-              <li>Set up your first AI automation in under 10 minutes</li>
-              <li>Create a content calendar that practically runs itself</li>
-              <li>Build simple but powerful AI workflows for repetitive tasks</li>
-            </ul>
-            <div className="session-date">April 23, 2025 • 7:00 PM EST</div>
-          
-          
+            <div className="session-content" style={{flexGrow:"1"}}>
+                <h3>Session 2: AI Time Savers—Automations That Multiply Your Productivity</h3>
+              <p>
+                Discover how to harness AI tools to automate content sharing, build webpages and dashboards, 
+                and integrate AI into your workflow—all with no coding required.
+              </p>
+              <ul className="session-benefits">
+                <li>Set up your first AI automation in under 10 minutes</li>
+                <li>Create a content calendar that practically runs itself</li>
+                <li>Build simple but powerful AI workflows for repetitive tasks</li>
+              </ul>
+              <div className="session-date">April 23, 2025 • 7:00 PM EST</div>
+            </div>
           </div>
         </div>
 
@@ -271,7 +268,7 @@ export function CourseLanding() {
       <footer>
         <div className="footer-content">
           <div className="footer-logo">
-            <img src="https://i.imgur.com/JaE4oM9.jpeg" alt="Building Happy People with AI" className="footer-logo-img" />
+            <img src="Build_Happy_logo_wo_plaque.png" alt="Building Happy People with AI" className="footer-logo-img" />
             <p>Building Happy People with AI</p>
           </div>
           <div className="footer-links">
