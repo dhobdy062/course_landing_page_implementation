@@ -227,7 +227,7 @@ p {
   background: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
   position: relative;
   transition: transform 0.3s ease;
@@ -235,28 +235,6 @@ p {
 
 .pricing-card:hover {
   transform: translateY(-10px);
-}
-
-.pricing-card.featured {
-  border: 2px solid #0070f3;
-  transform: scale(1.05);
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.05) translateY(-10px);
-}
-
-.best-value {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0070f3;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 30px;
-  font-size: 0.8rem;
-  font-weight: 700;
 }
 
 .pricing-header {
@@ -301,7 +279,6 @@ p {
   font-size: 0.9rem;
   color: #666;
   margin-top: 10px;
-  font-style: italic;
 }
 
 .confirmation-message {
@@ -311,6 +288,18 @@ p {
   background: #f0f4f8;
   border-radius: 5px;
   font-weight: 500;
+}
+
+/* Responsive Design for Pricing Cards */
+@media (max-width: 900px) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pricing-card {
+    width: 100%;
+  }
 }
 
 /* Call to Action */

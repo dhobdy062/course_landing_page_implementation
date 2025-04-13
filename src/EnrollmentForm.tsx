@@ -18,7 +18,7 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
     setIsSubmitting(true);
     try {
       await createEnrollment(formData);
-      onComplete(); // This calls the parent's handleEnrollmentComplete
+      onComplete(); // This will show the payment options
     } catch (error) {
       console.error("Error creating enrollment:", error);
     } finally {
