@@ -13,7 +13,10 @@ export function CourseLanding() {
   const handleEnrollmentComplete = () => {
     setEnrollmentComplete(true);
     setShowEnrollmentForm(false);
-    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+    // Scroll to pricing section after a short delay to ensure state has updated
+    setTimeout(() => {
+      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   return (
@@ -140,20 +143,21 @@ export function CourseLanding() {
       {/* Payment Section */}
       <section className="payment" id="pricing">
         <h2>Choose Your Payment Option</h2>
-        {enrollmentComplete && (
+        {enrollmentComplete ? (
           <>
             <div className="pricing-cards">
               <div className="pricing-card">
                 <div className="pricing-header">
-                  <h3>Monthly Plan</h3>
-                  <div className="price">$25<span>/month</span></div>
-                  <p>3-month commitment</p>
+                  <h3>Installment Plan</h3>
+                  <div className="price">$25<span>/installment</span></div>
+                  <p>3 monthly payments of $25</p>
                 </div>
                 <ul className="pricing-features">
                   <li>✅ All 3 live sessions</li>
                   <li>✅ Session recordings</li>
                   <li>✅ Course materials</li>
                   <li>✅ Email support</li>
+                  <li>💰 Pay $25 now + 2 monthly payments</li>
                 </ul>
                 <a
                   href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-1KV150647P276913SM7SBDSI"
@@ -161,23 +165,27 @@ export function CourseLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Start Monthly Plan
+                  Pay First Installment
                 </a>
+                <div className="pricing-note">
+                  Next payments: May 16 & June 16
+                </div>
               </div>
               
               <div className="pricing-card featured">
-                <div className="best-value">BEST VALUE</div>
+                <div className="best-value">SAVE $25</div>
                 <div className="pricing-header">
-                  <h3>Pay in Full</h3>
-                  <div className="price">$75<span>/one-time</span></div>
-                  <p>Save $25 compared to monthly</p>
+                  <h3>One-Time Payment</h3>
+                  <div className="price">$75<span> total</span></div>
+                  <p>Best value - Save $25</p>
                 </div>
                 <ul className="pricing-features">
                   <li>✅ All 3 live sessions</li>
                   <li>✅ Session recordings</li>
                   <li>✅ Course materials</li>
                   <li>✅ Email support</li>
-                  <li>✅ BONUS: Private Q&A</li>
+                  <li>🎁 BONUS: Private Q&A access</li>
+                  <li>💰 Save $25 with one payment</li>
                 </ul>
                 <a
                   href="https://www.paypal.com/ncp/payment/S9YYCL6MYJED4"
@@ -185,15 +193,15 @@ export function CourseLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Pay in Full & Save
+                  Pay $75 Now & Save
                 </a>
               </div>
             </div>
             <div className="confirmation-message">
-              Meeting password will be included in an email after payment confirmation
+              Meeting password and access details will be sent after payment confirmation
             </div>
           </>
-        )}
+        ) : null}
       </section>
 
       {/* FAQ Section */}
