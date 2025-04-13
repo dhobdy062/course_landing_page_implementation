@@ -61,28 +61,14 @@ export function CourseLanding() {
       <section className="course-breakdown">
         <h2>Course Breakdown</h2>
         <div className="session">
-          <div
-            className="session-image-container"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              height: "100%",
-              width: "100%",
-            }}
-          >
+          <div className="session-image">
             <img
-              style={{
-                width: '250px', 
-                height: '100%', 
-                objectFit: 'cover', 
-                borderRadius: '10px',
-              }}
+              src="aisession1.png"
+              alt="Session 1"
+              className="session-img"
             />
-
-<img src="aisession1.png" alt="Session 1" style={{ width: '250px', height: '100%', objectFit: 'cover', borderRadius: '10px', position: 'absolute', right: 0 }} />
-
-            
-          <div className="session-content" style={{ flexGrow: "1" }}>
+          </div>
+          <div className="session-content">
             <h3>Session 1: Speak AI—Mastering the Art of Prompt Engineering</h3>
             <p>
               Learn the fundamentals of prompt engineering and how to use proven frameworks to create content, 
@@ -96,65 +82,40 @@ export function CourseLanding() {
             <div className="session-date">April 16, 2025 • 7:00 PM EST</div>
           </div>
         </div>
-        </div>
 
         <div className="session">
-          <div className="session-image-container" style={{
-                display: "flex",
-                flexDirection: "row-reverse",
-                height: "100%",
-                width: "100%",
-              }}>
-              <img
-                  src="aisession2.png"
-                  alt="Session 2"
-                  style={{
-                    width: "250px",
-                    height: "100%",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                  }}
-                />
-
-            <div className="session-content" style={{flexGrow:"1"}}>
-                <h3>Session 2: AI Time Savers—Automations That Multiply Your Productivity</h3>
-              <p>
-                Discover how to harness AI tools to automate content sharing, build webpages and dashboards, 
-                and integrate AI into your workflow—all with no coding required.
-              </p>
-              <ul className="session-benefits">
-                <li>Set up your first AI automation in under 10 minutes</li>
-                <li>Create a content calendar that practically runs itself</li>
-                <li>Build simple but powerful AI workflows for repetitive tasks</li>
-              </ul>
-              <div className="session-date">April 23, 2025 • 7:00 PM EST</div>
-            </div>
+          <div className="session-image">
+            <img
+              src="aisession2.png"
+              alt="Session 2"
+              className="session-img"
+            />
+          </div>
+          <div className="session-content">
+            <h3>Session 2: AI Time Savers—Automations That Multiply Your Productivity</h3>
+            <p>
+              Discover how to harness AI tools to automate content sharing, build webpages and dashboards, 
+              and integrate AI into your workflow—all with no coding required.
+            </p>
+            <ul className="session-benefits">
+              <li>Set up your first AI automation in under 10 minutes</li>
+              <li>Create a content calendar that practically runs itself</li>
+              <li>Build simple but powerful AI workflows for repetitive tasks</li>
+            </ul>
+            <div className="session-date">April 23, 2025 • 7:00 PM EST</div>
           </div>
         </div>
 
-        <div className="session" style={{position:"relative"}}>
-          <div className="session-icon" style={{
-            backgroundImage: `url('https://i.imgur.com/i1pYt9E.jpeg')`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            width: '80px',
-            height: '80px'
-          }}></div>
-          <div className="session-content">
-            <h3>Session 3: The Agentic Era—Harnessing the Power of AI Agents</h3>
-             <img
+        <div className="session">
+          <div className="session-image">
+            <img
               src="class-session3.png"
               alt="Session 3"
-              style={{
-                width: "250px",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "10px",
-                position: 'absolute',
-                right: 0
-              }}
+              className="session-img"
             />
+          </div>
+          <div className="session-content">
+            <h3>Session 3: The Agentic Era—Harnessing the Power of AI Agents</h3>
             <p>
               Explore the transformative power of AI agents, learn how to build an AI for your business 
               or as a personal assistant, and leverage these tools for enhanced productivity.
