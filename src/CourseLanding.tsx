@@ -34,7 +34,7 @@ export function CourseLanding() {
           </div>
         </div>
         <div className="hero-image">
-          <img src="https://i.imgur.com/Y2h15C5.jpeg" alt="AI Training Workshop" />
+          <img src="future work2.jpeg" alt="AI Training Workshop" />
         </div>
       </header>
 
@@ -101,12 +101,12 @@ export function CourseLanding() {
         <div className="session">
           <div className="session-image-container" style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "row-reverse",
                 height: "100%",
                 width: "100%",
               }}>
               <img
-                  src="aisession2.png"
+                  src="public/aisession2.png"
                   alt="Session 2"
                   style={{
                     width: "250px",
@@ -152,7 +152,7 @@ export function CourseLanding() {
                 objectFit: "cover",
                 borderRadius: "10px",
                 position: 'absolute',
-                left: 0
+                right: 0
               }}
             />
             <p>
