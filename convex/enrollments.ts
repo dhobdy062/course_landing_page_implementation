@@ -17,20 +17,15 @@ export const create = mutation({
       email: args.email,
       phone: args.phone,
       dateOfBirth: args.dateOfBirth,
-      status: "pending",
-      paymentStatus: "pending",
+      status: "enrolled",
     });
   },
 });
 
-export const getByPaypalId = query({
-  args: { paypalPaymentId: v.string() },
+export const get = query({
+  args: { id: v.id("enrollments") },
   handler: async (ctx, args) => {
-    return await ctx.db
-      .query("enrollments")
-      .withIndex("by_paypal_id")
-      .filter((q) => q.eq(q.field("paypalPaymentId"), args.paypalPaymentId))
-      .first();
+    return await ctx.db.get(args.id);
   },
 });
 

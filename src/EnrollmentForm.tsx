@@ -18,7 +18,7 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
     setIsSubmitting(true);
     try {
       await createEnrollment(formData);
-      onComplete(); // This will show the payment options
+      onComplete(); // Show enrollment confirmation
     } catch (error) {
       console.error("Error creating enrollment:", error);
     } finally {
@@ -73,7 +73,7 @@ export function EnrollmentForm({ onComplete }: { onComplete: () => void }) {
         className="button button-primary"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Processing..." : "Continue to Payment"}
+        {isSubmitting ? "Processing..." : "Complete Enrollment"}
       </button>
     </form>
   );

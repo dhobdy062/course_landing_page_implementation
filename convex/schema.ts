@@ -9,14 +9,8 @@ const applicationTables = {
     email: v.string(),
     phone: v.string(),
     dateOfBirth: v.string(),
-    plan: v.optional(v.string()),
-    amount: v.optional(v.number()),
     status: v.string(),
-    paypalPaymentId: v.optional(v.string()),
-    paymentStatus: v.optional(v.string()),
-    paymentDate: v.optional(v.number()),
-  }).index("by_user", ["userId"])
-    .index("by_paypal_id", ["paypalPaymentId"]),
+  }).index("by_user", ["userId"]),
 };
 
 export default defineSchema({
